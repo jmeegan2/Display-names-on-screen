@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name Storage and Display</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .name-list {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Name Storage and Display</h1>
+  <form>
+    <label for="name-input">Enter a name:</label>
+    <input type="text" id="name-input">
+    <button type="submit">Add Name</button>
+  </form>
+  <div class="name-list">
+    <h2>List of Names:</h2>
+    <ul id="name-list"></ul>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    const nameList = document.querySelector('#name-list');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const input = document.querySelector('#name-input');
+      const name = input.value;
+      input.value = '';
+
+      const li = document.createElement('li');
+      li.textContent = name;
+      nameList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
